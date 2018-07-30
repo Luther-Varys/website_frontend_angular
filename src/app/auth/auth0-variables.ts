@@ -1,3 +1,6 @@
+import { environment } from '../../environments/environment';
+
+
 interface AuthConfig {
   clientID: string;
   domain: string;
@@ -9,6 +12,6 @@ export const AUTH_CONFIG: AuthConfig = {
   domain: 'omniarete.eu.auth0.com',
   // callbackURL: 'http://localhost:3000/callback'
   // callbackURL: 'http://localhost:3000/app/dashboard'
-  callbackURL: 'http://localhost:3000'
+  callbackURL: environment.auth0CallbackUrl//'http://localhost:3000'
   
 };

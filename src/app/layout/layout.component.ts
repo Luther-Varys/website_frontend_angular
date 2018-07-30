@@ -15,6 +15,8 @@ import {
 } from '@angular/router';
 import { AppConfig } from '../app.config';
 
+import { environment } from '../../environments/environment';
+
 declare let jQuery: any;
 declare let Hammer: any;
 
@@ -34,6 +36,8 @@ export class LayoutComponent implements OnInit {
   router: Router;
   @ViewChild('spinnerElement') spinnerElement: ElementRef;
   @ViewChild('routerComponent') routerComponent: ElementRef;
+
+  environment_Name = environment.enviromentName;
 
   constructor(config: AppConfig,
               el: ElementRef,
