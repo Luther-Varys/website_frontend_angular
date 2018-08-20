@@ -1,13 +1,25 @@
 <div class="panel panel-default profile-area">
-    <div class="panel-heading">
-      <h3>Profile</h3>
-    </div>
-    <div class="panel-body">
-      <img src="{{profile?.picture}}" class="avatar" alt="avatar" style="height: 100px;">
-      <div>
-        <label><i class="glyphicon glyphicon-user"></i> Nickname</label>
-        <h3 class="nickname">{{ profile?.nickname }}</h3>
-      </div>
-      <pre class="full-profile">{{ profile | json }}</pre>
-    </div>
+  <div class="panel-heading">
+    <h3>Profile</h3>
   </div>
+  <div class="panel-body">
+    <img src="{{profile?.picture}}" class="avatar" alt="avatar" style="height: 100px;">
+    <div>
+      <label>
+        <i class="glyphicon glyphicon-user"></i> Nickname</label>
+      <h3 class="nickname">{{ profile?.nickname }}</h3>
+    </div>
+    <pre class="full-profile">{{ profile | json }}</pre>
+  </div>
+</div>
+
+
+<br>
+
+<button type="button" (click)="pingDbPublic()">Call DB pingDbPublic</button>
+<br>
+<button type="button" (click)="pingDbPrivate()">Call DB pingDbPrivate</button>
+<br>
+<button type="button" (click)="pingDbPrivateScoped()">Call DB pingDbPrivateScoped</button>
+<br>
+<button type="button" (click)="createPoll()">Call DB createPoll</button>

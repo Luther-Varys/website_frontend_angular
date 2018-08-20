@@ -7,6 +7,8 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent {
 
+  dateTime = new Date();
+
   constructor(public auth: AuthService) { }
 
 }

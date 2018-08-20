@@ -3,6 +3,8 @@ import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 
+import { environment } from '../../environments/environment';
+
 (window as any).global = window;
 
 @Injectable()
@@ -12,10 +14,12 @@ export class AuthService {
     clientID: AUTH_CONFIG.clientID,
     domain: AUTH_CONFIG.domain,
     responseType: 'token id_token',
-    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
-    redirectUri: AUTH_CONFIG.callbackURL,
+    audience: 'https://omniarete_webapi _net',//`https://${AUTH_CONFIG.domain}/userinfo`,
+    redirectUri: environment.auth0CallbackUrl,//AUTH_CONFIG.callbackURL,
+    // redirectUri: AUTH_CONFIG.callbackURL,
     scope: "openid profile email email_verified"
   });
+
 
   userProfile:any;
 
@@ -26,6 +30,9 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
+
+
+
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
@@ -35,10 +42,21 @@ export class AuthService {
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
-    });
+    });  
+
+
+    // try {
+    
+    // } catch (error) {
+    //   console.log("ZR in AuthService.handleAuthentication(), error message: ", error) 
+    // }
+
   }
 
   public getProfile(cb): void {
+
+
+
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       throw new Error('Access token must exist to fetch profile');
@@ -72,10 +90,45 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
+
+    // if(this._areAuth0LocalStorageItemsPresent() == false)
+    //   return false;
+
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
   }
+
+
+
+
+
+
+
+  // private _areAuth0LocalStorageItemsPresent(): boolean{
+  //   if(this._isPresentAccessToken() == false || this._isPresentIdToken() == false || this._isPresentExpiration() == false)
+  //     return false;
+  //   return true;
+  // }
+
+  // private _isPresentAccessToken(): boolean{
+  //   if (localStorage.getItem("access_token") === null)
+  //     return true;
+  //   return false;
+  // }
+
+  // private _isPresentIdToken(): boolean{
+  //   if (localStorage.getItem("id_token") === null)
+  //     return true;
+  //   return false;
+  // }
+
+  // private _isPresentExpiration(): boolean{
+  //   if (localStorage.getItem("expires_at") === null)
+  //     return true;
+  //   return false;
+  // }
+
 
 }

@@ -62,7 +62,7 @@
 </form>
 
 
-
+<!-- auth.isAuthenticated()==false -->
 <ul class="navbar-nav mr-3 d-none d-md-flex flex-row" (click)="$event.preventDefault()" *ngIf="auth.isAuthenticated()==false">
   <li class="nav-item">
       <a class="nav-link" href="#" (click)="auth.login()">
@@ -74,8 +74,7 @@
   </li>
 </ul>
 
-
-
+<!-- auth.isAuthenticated() -->
 <ul class="navbar-nav mr-3 d-none d-md-flex flex-row" (click)="$event.preventDefault()" *ngIf="auth.isAuthenticated()">
   <li class="nav-item dropdown" dropdown placement="bottom right" [autoClose]="false">
     <a href="#" dropdownToggle class="nav-link dropdown-toggle dropdown-toggle-notifications" id="notifications-dropdown-toggle">
