@@ -1,0 +1,27 @@
+# Connect
+#open sftp://"omniaretefront\$omniaretefront":"rl2bYX07sbBW04Dbxnxg6cqgjco4zq8qCNzglk5eiyAXg9khFgWMuAu6d0hs"@ftp://waws-prod-dm1-099.ftp.azurewebsites.windows.net/
+open ftp://omniaretefront\$omniaretefront:rl2bYX07sbBW04Dbxnxg6cqgjco4zq8qCNzglk5eiyAXg9khFgWMuAu6d0hs@waws-prod-dm1-099.ftp.azurewebsites.windows.net
+
+# Change remote directory
+cd /site/wwwroot
+
+#Delete all files and folders
+rm *
+
+# Download file to the local directory d:\
+#get examplefile.txt d:\
+# Disconnect
+#close
+# Connect as a different user
+#open sftp://user2:password@example.com/
+# Change the remote directory
+#cd /home/user2
+
+# Upload the file to current working directory
+# this is the distro --> # put "C:\Users\amnesia\Desktop\sergio bramini id" 
+
+# Disconnect
+close
+
+# Exit WinSCP
+exit
