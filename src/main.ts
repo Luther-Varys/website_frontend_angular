@@ -11,7 +11,7 @@ if (environment.production) {
 // use the require method provided by webpack
 declare const require;
 // we use the webpack raw-loader to return the content as a string
-const translations = require(`raw-loader!./locale/messages.xlf`);
+const translations = require(`raw-loader!./locale/messages.fr.xlf`);
 
 
 
@@ -20,5 +20,4 @@ platformBrowserDynamic().bootstrapModule(AppModule, {
     {provide: TRANSLATIONS, useValue: translations},
     {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'}
   ]
-})
-  .catch(err => console.log(err));
+}).catch(err => console.log(err));

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { LOCALE_ID, Component, Inject } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent {
 
+  // @Inject(LOCALE_ID) public mylocale: string
   dateTime = new Date();
+  // mylocale = LOCALE_ID;
 
-  constructor(public auth: AuthService) { }
+  constructor(@Inject(LOCALE_ID) public mylocale: string, public auth: AuthService) { }
 
 }

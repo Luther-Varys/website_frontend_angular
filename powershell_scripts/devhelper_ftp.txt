@@ -18,7 +18,7 @@ rm *
 #cd /home/user2
 
 # Upload the file to current working directory
-# this is the distro --> # put "C:\Users\amnesia\Desktop\sergio bramini id" 
+put "C:\Users\amnesia\Desktop\sergio bramini id" 
 
 # Disconnect
 close
