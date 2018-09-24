@@ -1,0 +1,102 @@
+<p>
+  agmtest-geocoding works!
+</p>
+
+
+<div>
+  source code used to implement address autocomplete:
+  <br> https://stackoverflow.com/questions/50472526/angular-5-autocomplete-geolocation-npm-install-not-working
+  <br>
+  <br> Remember to enable the required apis: geocoding, geolocation, reverse geocoding, places... apis from google's developer pannel:
+  <br> If not enabled api call permission errors may occure.
+  <br> https://stackoverflow.com/questions/32994634/this-api-project-is-not-authorized-to-use-this-api-please-ensure-that-this-api/32998566
+
+</div>
+
+<div>
+  <input type="text" placeholder="Search for location" autocorrect="off" name="" spellcheck="off" #autoSearch/>
+</div>
+
+<br>
+<h3>json data</h3>
+<pre>{{address_components | json}}</pre>
+
+
+<!-- <div class="container">
+  <h1>Angular 2 + Google Maps Places Autocomplete</h1>
+  <div class="form-group">
+    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+  </div>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div> -->
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div class="jumbotron text-center">
+  <h1>Google Maps Address Finder</h1>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom" [fullscreenControl]="true"  [mapTypeId]="'hybrid'" >
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group" >
+      <label >Enter Location</label>
+      <input class="form-control mr-sm-4" type="text" id="autocomplete"  placeholder="Search for the Location" autocorrect="off" id="myText" autocapitalize="off" spellcheck="off"  class="form-control" width="784px"    #search  /></div> 
+
+      <div class="form-group" >
+        <label >Address of the location:</label>
+        <input  class="form-control mr-sm-4"  placeholder="{{f_addr}}"  class="form-control" width="784px" disabled="true">
+      </div>
+    </div>
+    <div class="col-sm-4">
+
+
+     <div class="form-group">
+      <label for="text">Lat:</label>
+      <input type="password" class="form-control" placeholder=" {{ latitude}}" disabled="true">
+    </div>
+    <div class="form-group">
+      <label for="text">Lng:</label>
+      <input type="text" class="form-control" placeholder=" {{ longitude}}" disabled="true">
+    </div>
+  </div>
+  <div class="col-sm-4">
+
+   <div class="form-group" >
+    <label >City:</label>
+    <input  class="form-control"  placeholder="{{city}}"   disabled="true">
+  </div>
+  <div class="form-group" >
+    <label >State:</label>
+    <input  class="form-control" placeholder="{{state}}"  disabled="true">
+  </div>
+</div>
+<div class="col-sm-4">
+
+
+  <div class="form-group" >
+    <label >Country:</label>
+    <input  class="form-control" placeholder="{{country}}"  disabled="true">
+  </div>
+  <div class="form-group" >
+    <label >Country initials:</label>
+    <input  class="form-control" placeholder="{{scountry}}"  disabled="true">
+  </div>
+</div>
+<div class="col-sm-4">
+
+
+  <div class="form-group">
+    <label for="text">Zipcode</label>
+    <input type="password" class="form-control" placeholder=" {{ postCode}}" disabled="true">
+  </div>
+  <div class="form-group">
+    <label for="text">State initials</label>
+    <input type="text" class="form-control" placeholder=" {{ estab}}" disabled="true">
+  </div>    
+
+</div>
+</div> -->

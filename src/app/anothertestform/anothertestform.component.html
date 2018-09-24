@@ -1,0 +1,93 @@
+<p>
+  anothertestform works!
+</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <div formGroupName="profileDetailForm">
+    <label>
+      First Name:
+      <!-- <input type="text" formControlName="firstName"> -->
+      <input kendoTextBox formControlName="firstName" />
+    </label>
+    <span *ngIf="!profileForm.get('profileDetailForm.firstName').valid && profileForm.get('profileDetailForm.firstName').touched">
+      <span *ngIf="profileForm.get('profileDetailForm.firstName').errors['nameIsForbidden']">
+        This name is invalid!
+      </span>
+      <span *ngIf="profileForm.get('profileDetailForm.firstName').errors['required']">
+        This field is required!
+      </span>
+    </span>
+    <br>
+
+    <label>
+      Last Name:
+      <!-- <input type="text" formControlName="lastName"> -->
+      <input kendoTextBox formControlName="lastName" />
+    </label>
+    <br>
+  </div>
+
+
+
+  <label>
+    City:
+    <!-- <input type="text" formControlName="lastName"> -->
+    <input kendoTextBox formControlName="city" />
+  </label>
+  <br>
+
+
+  <label>
+    Date birth:
+    <!-- <input type="text" formControlName="datebirth"> -->
+    <kendo-datepicker formControlName="datebirth"></kendo-datepicker>
+  </label>
+  <br>
+
+  <label>
+    Height:
+    <!-- <input type="text" formControlName="height"> -->
+    <kendo-numerictextbox formControlName="height" [min]="-22" [max]="1000"></kendo-numerictextbox>
+  </label>
+  <br>
+
+  <label>
+    Email:
+    <!-- <input type="text" formControlName="height"> -->
+    <input type="email" class="k-textbox" value="bernardo.batista@progress.com" placeholder="Your Email" formControlName="email"
+    />
+  </label>
+  <br>
+
+  <span *ngIf="!profileForm.valid && profileForm.touched">
+    Please enter valid data
+  </span>
+  <br>
+  <button kendoButton [look]="'outline'" type="submit" [disabled]="!profileForm.valid">submit</button>
+  <!-- <button type="submit" [disabled]="!profileForm.valid">Submit</button> -->
+  <br>
+  {{msgInvalidForm|json}}
+</form>
+
+
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="setValueOfForm()">Set FormValue</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="patchValueOfForm()">Patch FormValue</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="resetValueOfForm()">RESET FormValue</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="setManuallyErrorOnField()">Set error on CITY field Manually</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="map_vM_to_formGroup()">map_vM_to_formGroup</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="map_formGroup_to_vm()">map_formGroup_to_vm</button>
+<br>
+<button kendoButton [look]="'outline'" type="button" (click)="accountDetail()">accountDetail</button>
+
+
+
+
+
+
+

@@ -10,26 +10,38 @@
 
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '@angular/common/http';
+// import { Response } from '@angular/http';
 import 'rxjs/Rx';
 
 // import { RecipeService } from '../recipes/recipe.service';
 // import { Recipe } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
+import { CameCaseVmMapperHelper } from './Helper/CameCaseVmMapperHelper';
+import { AppConfigVariables } from './appconfigvariables';
+
+
+
+
+
 
 @Injectable()
 export class DataStorageService {
-  constructor(private httpClient: HttpClient,
-              // private recipeService: RecipeService,
-              private authService: AuthService) {
+
+  baseUrlBackend:string;
+
+  cameCaseVmMapperHelper = new CameCaseVmMapperHelper();
+
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
+                this.baseUrlBackend = AppConfigVariables.baseUrlBackend();
   }
 
 
 
   pingDbPublic(){
-    const path_1 = "http://localhost:49433/api/values";
-    const path_2 = "http://localhost:3010/api/public";
-    const path_3 = "http://localhost:51964/public";
+    // const path_1 = "http://localhost:49433/api/values";
+    const path_2 = this.baseUrlBackend+"api/public";
+    // const path_3 = "http://localhost:51964/public";
 
     const res = this.httpClient.get(path_2).subscribe(
       (recipes:any) => {
@@ -42,9 +54,9 @@ export class DataStorageService {
 
 
   pingDbPrivate(){
-    const path_1 = "http://localhost:49433/api/values";
-    const path_2 = "http://localhost:3010/api/private";
-    const path_3 = "http://localhost:51964/private";
+    // const path_1 = "http://localhost:49433/api/values";
+    const path_2 = this.baseUrlBackend+"api/private";
+    // const path_3 = "http://localhost:51964/private";
 
     const res = this.httpClient.get(path_2, {
       // headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
@@ -65,16 +77,13 @@ export class DataStorageService {
 
 
   pingDbPrivateScoped(){
-    const path_1 = "http://localhost:49433/api/values";
-    const path_2 = "http://localhost:3010/api/private-scoped";
-    const path_3 = "http://localhost:51964/private-scoped";
+    const path_2 = this.baseUrlBackend+"api/private-scoped";
 
-    const res = this.httpClient.get(path_2, {
-      // headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+    const obser = this.httpClient.get(path_2, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
       }).subscribe(
-      (recipes:any) => {
-        console.log(recipes);
+      (resp:any) => {
+        console.log(resp);
       },
       (error:any)=>{
         console.log(error);
@@ -83,7 +92,8 @@ export class DataStorageService {
 
       }
     );
-    // console.log(res);
+
+    //return obser;
   }
 
 
@@ -92,7 +102,7 @@ export class DataStorageService {
 
 
   createPoll(){
-    const path_2 = "http://localhost:3010/api/poll/createpoll";
+    const path_2 = this.baseUrlBackend+"api/poll/createpoll";
 
     const res = this.httpClient.get(path_2, {
       // headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
@@ -113,6 +123,65 @@ export class DataStorageService {
 
 
 
+
+  createUser(detailFormVM: DetailFormVM){
+    const path = this.baseUrlBackend+"api/testapi/createuser";
+
+    // const obser = this.httpClient.post(path, detailFormVM, {
+    //   headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`),
+    //   }).subscribe(
+    //   (resp:any) => {
+    //     console.log(resp);
+    //   },
+    //   (error:any)=>{
+    //     console.log(error);
+    //   },
+    //   ()=>{
+    //   }
+    // );
+
+    const obser = this.httpClient.post(path, detailFormVM, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`),
+      })
+
+
+
+    return obser;
+  }
+
+
+
+  //AccountDetail
+  accountDetail(/*detailFormVM: DetailFormVM*/){
+    const path = this.baseUrlBackend+"api/testapi/accountDetail";
+
+    // const obser = this.httpClient.post(path, detailFormVM, {
+    //   headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`),
+    //   }).subscribe(
+    //   (resp:any) => {
+    //     console.log(resp);
+    //   },
+    //   (error:any)=>{
+    //     console.log(error);
+    //   },
+    //   ()=>{
+    //   }
+    // );
+
+    const obser = this.httpClient.get<DetailFormVM>(path, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`),
+      })
+      .map((response) => <DetailFormVM>(this.cameCaseVmMapperHelper.objectKeysToCamel(response)));
+      //.map((response: DetailFormVM) => console.log("ZR response: ", response) );
+      // .map((response: DetailFormVM) => {return response;});
+      // .map((response: DetailFormVM) => <DetailFormVM>response.json());
+    
+    // obser.subscribe();
+
+
+
+    return obser;
+  }
 
 
 
@@ -155,4 +224,38 @@ export class DataStorageService {
   //       }
   //     );
   // }
+}
+
+
+
+
+
+export class DetailFormVM
+{
+    public profileDetailForm:ProfileDetailVM; 
+    public city:string;
+    public datebirth:string;
+    public  height:number;
+    public email:string
+
+    constructor(){
+      this.profileDetailForm = new ProfileDetailVM();
+      this.city = undefined;
+      this.datebirth = undefined;
+      this.height = undefined;
+      this.email = undefined;
+    }
+
+} 
+
+export class ProfileDetailVM
+{
+    public firstName:string;
+    public lastName:string;
+
+    constructor(){
+     this.firstName = undefined; 
+     this.lastName = undefined; 
+    }
+
 }

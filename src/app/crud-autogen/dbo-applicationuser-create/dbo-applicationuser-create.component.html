@@ -1,0 +1,91 @@
+<p>
+  crud-dbo-applicationuser works!
+</p>
+
+
+<!-- 
+<form [formGroup]="mainForm" (ngSubmit)="onSubmit()"> -->
+
+
+
+
+  <!-- <label>
+    City:
+    <input kendoTextBox formControlName="city" />
+  </label>
+  <br> -->
+
+
+  <!-- <label>
+    Date birth:
+    <kendo-datepicker formControlName="datebirth"></kendo-datepicker>
+  </label>
+  <br>
+
+  <label>
+    Height:
+    <kendo-numerictextbox formControlName="height" [min]="-22" [max]="1000"></kendo-numerictextbox>
+  </label>
+  <br>
+
+  <label>
+    Email:
+    <input type="email" class="k-textbox" value="bernardo.batista@progress.com" placeholder="Your Email" formControlName="email"
+    />
+  </label>
+  <br>
+
+  <span *ngIf="!profileForm.valid && profileForm.touched">
+    Please enter valid data
+  </span>
+  <br>
+  <button kendoButton [look]="'outline'" type="submit" [disabled]="!profileForm.valid">submit</button> -->
+  <!-- <br> -->
+  <!-- {{msgInvalidForm|json}} -->
+<!-- </form> -->
+
+
+
+
+
+<div class="row example-wrapper">
+  <div class="col-xs-12 col-sm-6 offset-sm-3 example-col">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form" [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <legend>applicationuser Details</legend>
+
+            <label class="k-form-field">
+              <span>FirstName</span>
+              <input class="k-textbox" placeholder="firstName" formControlName="firstName" />
+            </label>
+            <label class="k-form-field">
+              <span>LastName</span>
+              <input class="k-textbox" placeholder="lastName" formControlName="lastName" />
+            </label>
+            <label class="k-form-field">
+              <span>DateOfBirth</span>
+              <input class="k-textbox" placeholder="dateOfBirth" formControlName="dateOfBirth" />
+            </label>
+            <label class="k-form-field">
+              <span>Gender</span>
+              <input class="k-textbox" placeholder="gender" formControlName="gender" />
+            </label>
+          </fieldset>
+
+
+
+          <div class="text-right">
+            <!-- <button type="button" class="k-button">Cancel</button>
+            <button type="button" class="k-button k-primary">Submit</button> -->
+            <button kendoButton [look]="'outline'" type="submit" [disabled]="!mainForm.valid">submit</button>
+            {{msgInvalidForm|json}}
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

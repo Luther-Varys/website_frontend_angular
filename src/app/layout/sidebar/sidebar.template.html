@@ -29,6 +29,38 @@
       </a>
     </li>
     <li>
+      <a [routerLink]=" ['ng-googlemaps/showmap'] ">
+      <span class="icon">
+          <i class="fa fa-child"></i>
+      </span>
+      agm-googlemaps
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['ng-googlemaps/geocoding'] ">
+      <span class="icon">
+          <i class="fa fa-child"></i>
+      </span>
+      agm-geocoding
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['ng-googlemaps/geocoding-reverse'] ">
+      <span class="icon">
+          <i class="fa fa-child"></i>
+      </span>
+      agm-geocoding-reverse
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['another-page-form'] ">
+      <span class="icon">
+          <i class="fa fa-child"></i>
+      </span>
+        Another Page Form
+      </a>
+    </li>
+    <li>
       <a [routerLink]=" ['another-page'] ">
       <span class="icon">
           <i class="fa fa-tree"></i>
@@ -39,6 +71,114 @@
       </span>
       </a>
     </li>
+    <!-- <li>
+      <a [routerLink]=" ['crud-autogen'] ">
+      <span class="icon">
+          <i class="fa fa-tree"></i>
+      </span>
+        crud-autogen
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['crud-autogen/crud-dbo-applicationuser'] ">
+      <span class="icon">
+          <i class="fa fa-tree"></i>
+      </span>
+        crud-appuser
+      </a>
+    </li> -->
+
+    <li>
+      <!-- an example of nested submenu. basic bootstrap collapse component -->
+      <a class="collapsed" data-target="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <!-- <i class="fi flaticon-list"></i> -->
+          <i class="fa fa-tree"></i>
+        </span>
+        Autogen Crud
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-forms" class="collapse">
+        <li>
+          <a [routerLink]=" ['crud-autogen'] ">
+          <span class="icon">
+              <i class="fa fa-tree"></i>
+          </span>
+            MAIN crud-autogen
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/image-uploader'] ">
+            image-uploader
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/dbo-applicationuser-create'] ">
+            applicationuser-c
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/dbo-applicationuser-read'] ">
+            applicationuser-r
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/dbo-applicationuser-readall'] ">
+            applicationuser-rall
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/dbo-applicationuser-update'] ">
+            applicationuser-u
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/dbo-applicationuser-delete'] ">
+            applicationuser-d
+          </a>
+        </li>
+        <!-- <li>
+          <a [routerLink]=" ['forms/validation'] ">Form Validation</a>
+        </li>
+        <li>
+          <a [routerLink]=" ['forms/wizard'] ">Form Wizard</a>
+        </li> -->
+      </ul>
+    </li>
+
+
+
+
+    <!-- <li>
+      <a class="collapsed" data-target="#sidebar-forms2" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <i class="fa fa-tree"></i>
+        </span>
+        Autogen Crud
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-forms2" class="collapse">
+        <li>
+          <a [routerLink]=" ['crud-autogen'] ">
+          <span class="icon">
+              <i class="fa fa-tree"></i>
+          </span>
+            MAIN crud-autogen
+          </a>
+        </li>
+        <li>
+          <a [routerLink]=" ['crud-autogen/crud-dbo-applicationuser'] ">
+            crud-appuser
+          </a>
+        </li>
+      </ul>
+    </li> -->
+
+
+
+
+
+
     <li *ngIf="configFn.isScreen('xs') || configFn.isScreen('sm')">
       <a (click)="logout()">
         <span class="icon">
@@ -47,7 +187,15 @@
         Logout
       </a>
     </li>
+
+
+
   </ul>
+
+
+
+
+
   <h5 class="sidebar-nav-title">Labels <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
   <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
   <ul class="sidebar-labels">
