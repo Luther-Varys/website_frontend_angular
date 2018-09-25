@@ -2,6 +2,10 @@ import { LOCALE_ID, Component, Inject } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { products } from './products';
 
+
+
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.template.html'
@@ -25,4 +29,5 @@ export class DashboardComponent {
   onButtonClick() {
     this.title = 'Hello from Kendo UI!';
   }
+
 }

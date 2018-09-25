@@ -9,6 +9,10 @@ import { AgmtestGeocodingComponent } from './agmtest-geocoding/agmtest-geocoding
 import { AgmtestReversegeocodingComponent } from './agmtest-reversegeocoding/agmtest-reversegeocoding.component'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { ButtonModule, ButtonGroupModule } from '@progress/kendo-angular-buttons';
+import { AppConfigVariables } from '../shared/appconfigvariables';
 
 export const routes = [
   // { path: '', component: GooglemapstestComponent, pathMatch: 'full' },
@@ -32,11 +36,15 @@ export const routes = [
     CommonModule,
     RouterModule.forChild(routes),
     // BrowserModule,
-    FormsModule,
+    //FormsModule,
     ReactiveFormsModule,
+    DateInputsModule,
+    InputsModule,
+    ButtonModule,
+    ButtonGroupModule,
     // AgmCoreModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAeO7HeMKs0df444MtYfq5eAfsFWwN8s_Q',
+      apiKey: AppConfigVariables.agmGoogleMapsApiKey(),
       libraries: ["places"]
     })
   ],
