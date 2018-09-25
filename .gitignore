@@ -1,4 +1,4 @@
 node_modules/
 dist/
 
-AppConfigVariables.ts
+src/app/shared/AppConfigVariables.ts
