@@ -1,20 +1,20 @@
+
+
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams, HttpRequest, HttpResponse } from '@angular/common/http';
 import 'rxjs/Rx';
-import { AuthService } from '../../../auth/auth.service';
-import { ApplicationUser_VMC } from '../../bl/vm/crud.autogen/VmC';
-import { ApplicationUser_VMU } from '../../bl/vm/crud.autogen/VmU';
-import { AppConfigVariables } from '../../appconfigvariables';
-
-
+import { AuthService } from '../../../../auth/auth.service';
+import { EntityLike_VMC } from '../../../bl/vm/crud.autogen/VmC';
+import { EntityLike_VMU } from '../../../bl/vm/crud.autogen/VmU';
+import { AppConfigVariables } from '../../../appconfigvariables';
 
 
 
 
 
 @Injectable()
-export class CrudDboApplicationUserService {
-  
+export class etn_EntityLikeController {
+
   baseUrlBackend:string;
 
   constructor(private httpClient: HttpClient, private authService: AuthService) {
@@ -22,8 +22,8 @@ export class CrudDboApplicationUserService {
   }
 
 
-  public createApplicationUser(vm: ApplicationUser_VMC){
-    const apiUrlPath = this.baseUrlBackend+"api/CrudModel/ApplicationUser/CreateApplicationUser/";
+  public createEntityLike(vm: EntityLike_VMC){
+    const apiUrlPath = this.baseUrlBackend+'api/CrudModel/EntityLike/CreateEntityLike/';
    
     const obser = this.httpClient.post(apiUrlPath, vm, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
@@ -47,15 +47,15 @@ export class CrudDboApplicationUserService {
   }
 
 
-  public readApplicationUser(modId: string){
-    const apiUrlPath = this.baseUrlBackend+"api/CrudModel/ApplicationUser/ReadApplicationUser/";
+  public readEntityLike(modId: string){
+    const apiUrlPath = this.baseUrlBackend+'api/CrudModel/EntityLike/ReadEntityLike/';
    
     const obser = this.httpClient.get(apiUrlPath, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
       });
       
     //   .subscribe(
-    //   (resp:any) => {
+    //   (resp:EntityLike_VMR) => {
     //     console.log(resp);
     //   },
     //   (error:any)=>{
@@ -71,8 +71,8 @@ export class CrudDboApplicationUserService {
   }
 
 
-  public updateApplicationUser(vm: ApplicationUser_VMU){
-    const apiUrlPath = this.baseUrlBackend+"api/CrudModel/ApplicationUser/UpdateApplicationUser/";
+  public updateEntityLike(vm: EntityLike_VMU){
+    const apiUrlPath = this.baseUrlBackend+'api/CrudModel/EntityLike/UpdateEntityLike/';
    
     const obser = this.httpClient.post(apiUrlPath, vm, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
@@ -96,8 +96,8 @@ export class CrudDboApplicationUserService {
 
 
 
-  public deleteApplicationUser(modId: string){
-    const apiUrlPath = this.baseUrlBackend+"api/CrudModel/ApplicationUser/DeleteApplicationUser/";
+  public deleteEntityLike(modId: string){
+    const apiUrlPath = this.baseUrlBackend+'api/CrudModel/EntityLike/DeleteEntityLike/';
    
     const obser = this.httpClient.post(apiUrlPath, modId, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`)
@@ -119,12 +119,5 @@ export class CrudDboApplicationUserService {
   }
 
 
-
-
-
-
 }
-
-
-
 

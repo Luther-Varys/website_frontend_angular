@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { CrudDboApplicationUserService } from '../../shared/webapi/crud.autogen/autogen-crud-dbo.service';
+//import { Dbo_ApplicationUserController } from '../../shared/webapi/crud.autogen/autogen-crud-dbo.service';
 import { MapperVMToFormGroupHelper } from '../../shared/Helper/MapperVMToFormGroupHelper';
 import { ApplicationUser_VMC } from '../../shared/bl/vm/crud.autogen/VmC';
 
 import { Observable } from 'rxjs';
 import { ModelStateErrorValidatorHelper } from '../../shared/Helper/ModelStateErrorValidatorHelper';
+import { dbo_ApplicationUserController } from '../../shared/webapi/crud.autogen/dbo/Dbo_ApplicationUserController';
 
 @Component({
   selector: 'dbo-applicationuser-create',
@@ -20,7 +21,7 @@ export class DboApplicationuserCreateComponent implements OnInit {
   mapperVMToFormGroup = new MapperVMToFormGroupHelper();
   msgInvalidForm:string;
 
-  constructor(private crudDboApplicationUserService:CrudDboApplicationUserService) { }
+  constructor(private crudDboApplicationUserService:dbo_ApplicationUserController) { }
 
   ngOnInit() {
     this.initForm();

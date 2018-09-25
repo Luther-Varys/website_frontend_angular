@@ -72,7 +72,8 @@ import '@progress/kendo-angular-intl/locales/es/all';
 import '@progress/kendo-angular-intl/locales/fr/all';
 import '@progress/kendo-angular-intl/locales/it/all';
 import '@progress/kendo-angular-intl/locales/ru/all';
-import { CrudDboApplicationUserService } from './shared/webapi/crud.autogen/autogen-crud-dbo.service';
+import { dbo_ApplicationUserController } from './shared/webapi/crud.autogen/dbo/Dbo_ApplicationUserController';
+// import { Dbo_ApplicationUserController } from './shared/webapi/crud.autogen/autogen-crud-dbo.service';
 
 // import { AgmCoreModule } from '@agm/core';
 // import { GooglemapstestComponent } from './googlemapstest/googlemapstest.component';
@@ -135,7 +136,7 @@ const APP_PROVIDERS = [
     AuthService,
     APP_PROVIDERS,
     DataStorageService,
-    CrudDboApplicationUserService
+    dbo_ApplicationUserController
   ]
 })
 export class AppModule {}
