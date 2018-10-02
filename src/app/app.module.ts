@@ -92,7 +92,7 @@ const APP_PROVIDERS = [
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    ErrorComponent,
+    ErrorComponent
     // GooglemapstestComponent
     // CrudDboApplicationUserComponent,
     // ProfileComponent

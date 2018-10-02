@@ -9,6 +9,10 @@ const routes: Routes = [
     { path: 'user-profile', loadChildren: '../profile/profile.module#ProfileModule' },
     { path: 'crud-autogen', loadChildren: '../crud-autogen/crud-autogen.module#CrudAutogenModule' },
     { path: 'ng-googlemaps', loadChildren: '../googlemapstest/googlemapstest.module#GooglemapstestModule' },
+    { path: 'test-qrcode', loadChildren: '../test-qrscanner/test-qrscanner.module#TestQrscannerModule' },
+    { path: 'test-qrcode', loadChildren: '../test-qrscanner/test-qrscanner.module#TestQrscannerModule' },
+    { path: 'test-sound', loadChildren: '../test-soundevent/test-soundevent.module#TestSoundeventModule' },
+    { path: 'test-wysiwyg-frola', loadChildren: '../test-wysiwyg-frola/test-wysiwyg-frola.module#TestWysiwygFrolaModule' },
   ]}
 ];
 

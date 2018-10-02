@@ -2,18 +2,19 @@
   <header class="logo d-none d-md-block">
     <a href="index.html">{{config.name}}</a>
   </header>
-  <div class="sidebar-status d-md-none dropdown" dropdown [autoClose]="false" (isOpenChange)="toggleSidebarOverflow($event)" placement="bottom left">
+  <div class="sidebar-status d-md-none dropdown" dropdown [autoClose]="false" (isOpenChange)="toggleSidebarOverflow($event)"
+    placement="bottom left">
     <a [routerLink]="" class="dropdown-toggle" dropdownToggle>
-              <span class="thumb-sm avatar float-right">
+      <span class="thumb-sm avatar float-right">
         <img class="rounded-circle" src="assets/img/people/a5.jpg" alt="...">
-              </span>
+      </span>
       <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
            should be used with bg-* and text-* classes for colors -->
-              <span class="circle bg-warning fw-bold text-gray-dark">
-                  13
-              </span>
-      &nbsp;
-      Philip <strong>Smith</strong>
+      <span class="circle bg-warning fw-bold text-gray-dark">
+        13
+      </span>
+      &nbsp; Philip
+      <strong>Smith</strong>
       <b class="caret"></b>
     </a>
     <app-notifications *dropdownMenu class="dropdown-menu dropdown-menu-left animated animated-fast fadeInUp"></app-notifications>
@@ -22,53 +23,85 @@
   <ul class="sidebar-nav">
     <li>
       <a [routerLink]=" ['dashboard'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-child"></i>
-      </span>
+        </span>
         Dashboard
       </a>
     </li>
     <li>
       <a [routerLink]=" ['ng-googlemaps/showmap'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-child"></i>
-      </span>
-      agm-googlemaps
+        </span>
+        agm-googlemaps
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['test-qrcode/qrscanner'] ">
+        <span class="icon">
+          <i class="fa fa-child"></i>
+        </span>
+        test-qrcode scan
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['test-qrcode/qrgenerator'] ">
+        <span class="icon">
+          <i class="fa fa-child"></i>
+        </span>
+        test-qrcode gen
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['test-sound/soundemit'] ">
+        <span class="icon">
+          <i class="fa fa-child"></i>
+        </span>
+        test-sound emit
+      </a>
+    </li>
+    <li>
+      <a [routerLink]=" ['test-wysiwyg-frola/test-frola'] ">
+        <span class="icon">
+          <i class="fa fa-child"></i>
+        </span>
+        test-wysiwyg ngx-editor
       </a>
     </li>
     <li>
       <a [routerLink]=" ['ng-googlemaps/geocoding'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-child"></i>
-      </span>
-      agm-geocoding
+        </span>
+        agm-geocoding
       </a>
     </li>
     <li>
       <a [routerLink]=" ['ng-googlemaps/geocoding-reverse'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-child"></i>
-      </span>
-      agm-geocoding-reverse
+        </span>
+        agm-geocoding-reverse
       </a>
     </li>
     <li>
       <a [routerLink]=" ['another-page-form'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-child"></i>
-      </span>
+        </span>
         Another Page Form
       </a>
     </li>
     <li>
       <a [routerLink]=" ['another-page'] ">
-      <span class="icon">
+        <span class="icon">
           <i class="fa fa-tree"></i>
-      </span>
+        </span>
         Another Page
-      <span class="badge badge-danger">
+        <span class="badge badge-danger">
           9
-      </span>
+        </span>
       </a>
     </li>
     <!-- <li>
@@ -101,9 +134,9 @@
       <ul id="sidebar-forms" class="collapse">
         <li>
           <a [routerLink]=" ['crud-autogen'] ">
-          <span class="icon">
+            <span class="icon">
               <i class="fa fa-tree"></i>
-          </span>
+            </span>
             MAIN crud-autogen
           </a>
         </li>
@@ -196,7 +229,11 @@
 
 
 
-  <h5 class="sidebar-nav-title">Labels <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+  <h5 class="sidebar-nav-title">Labels
+    <a class="action-link" href="#">
+      <i class="glyphicon glyphicon-plus"></i>
+    </a>
+  </h5>
   <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
   <ul class="sidebar-labels">
     <li>
@@ -224,15 +261,18 @@
   <div class="sidebar-alerts">
     <div class="alert fade show">
       <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
-      <span class="text-white fw-semi-bold">Sales Report</span> <br>
+      <span class="text-white fw-semi-bold">Sales Report</span>
+      <br>
       <div class="progress progress-xs mt-xs mb-0">
-        <div class="progress-bar progress-bar-gray-light" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-gray-light" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0"
+          aria-valuemax="100"></div>
       </div>
       <small>Calculating x-axis bias... 65%</small>
     </div>
     <div class="alert fade show">
       <a href="#" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
-      <span class="text-white fw-semi-bold">Personal Responsibility</span> <br>
+      <span class="text-white fw-semi-bold">Personal Responsibility</span>
+      <br>
       <div class="progress progress-xs mt-xs mb-0">
         <div class="progress-bar bg-danger" role="progressbar" style="width: 23%" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100"></div>
       </div>

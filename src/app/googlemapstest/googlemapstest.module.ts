@@ -16,7 +16,7 @@ import { AppConfigVariables } from '../shared/appconfigvariables';
 
 export const routes = [
   // { path: '', component: GooglemapstestComponent, pathMatch: 'full' },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'showmap', pathMatch: 'full' },
   { path: 'showmap', component: GooglemapstestComponent },
   { path: 'geocoding', component: AgmtestGeocodingComponent },
   { path: 'geocoding-reverse', component: AgmtestReversegeocodingComponent },

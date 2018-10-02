@@ -1,0 +1,112 @@
+<p>
+  test-qrscanner works!
+</p>
+
+
+The project for this qr reader/scanner is found here: https://www.npmjs.com/package/@zxing/ngx-scanner/v/1.2.1
+<br> You can find also other demos.
+<br> Plunker demo here: https://embed.plnkr.co/MN4riU/
+<br>  --> DOn't use the codes in the demos, they are old and they might have some bugs.
+<br> *** The codes in the demo is not updated 
+<br>
+<br>-->USE THE CODE FROM THE GITHUB REPO: ***
+<br> *** https://github.com/zxing-js/ngx-scanner/tree/master/src/app ***
+<br>
+<br>
+<br> The project seems to be derived from: https://github.com/schmich/instascan
+<br> -->If the camera is not showing be sure that is not used by some other application or browser. The camera can only be used by one application at the time.
+<br> 
+<div>
+  ---------------------------------------------------
+</div>
+<br>
+<br>
+<br>
+
+
+<div class="scanner-shell" [hidden]="!hasDevices" style="width:40%">
+
+    <header>
+      <select (change)="onDeviceSelectChange($event.target.value)">
+        <option value="" [selected]="!currentDevice">No Device Selected</option>
+        <option *ngFor="let device of availableDevices" [value]="device.deviceId" [selected]="currentDevice && device.deviceId === currentDevice.deviceId">{{ device.label }}</option>
+      </select>
+    </header>
+  
+    <zxing-scanner #scanner start="true" [device]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['CODE_39', 'CODE_128', 'QR_CODE']"></zxing-scanner>
+  
+    <footer>
+      <span>Result:</span>
+      <span>
+        <em *ngIf="!qrResultString">wating for scan...</em>
+        <strong>{{ qrResultString }}</strong>
+      </span>
+    </footer>
+  
+  </div>
+  
+  <ng-container *ngIf="hasPermission === undefined">
+  
+    <h2>Waiting for permissions.</h2>
+  
+    <blockquote>
+      If your device does not has cameras, no permissions will be asked.
+    </blockquote>
+  
+  </ng-container>
+  
+  <ng-container *ngIf="hasPermission === false">
+  
+    <h2>You denied the camera permission, we can't scan anything without it. 😪</h2>
+  
+  </ng-container>
+  
+  <ng-container *ngIf="hasDevices === undefined">
+  
+    <h2>Looking for devices.</h2>
+  
+  </ng-container>
+  
+  <ng-container *ngIf="hasDevices === null">
+  
+    <h2>Couldn't check for devices.</h2>
+  
+    <blockquote>
+      This may be caused by some security error.
+    </blockquote>
+  
+  </ng-container>
+  
+  <ng-container *ngIf="hasDevices === false">
+  
+    <h2>No devices were found.</h2>
+  
+    <blockquote>
+      I believe your device has no media devices attached to.
+    </blockquote>
+  
+  </ng-container>
+  
+  <hr>
+  
+  <footer>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Property</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ stateToEmoji(hasDevices) }}</td>
+          <td>Devices</td>
+        </tr>
+        <tr>
+          <td>{{ stateToEmoji(hasPermission) }}</td>
+          <td>Permissions</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Angular version: {{ ngVersion }}</p>
+  </footer>

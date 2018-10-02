@@ -1,0 +1,33 @@
+<p>
+  test-qrgenerator works!
+</p>
+  <h4>Example generated from "angularx-qrcode" github repo</h4>
+  <div>
+    **This example has been created from the repo at <a href="https://github.com/Cordobo/angularx-qrcode">https://github.com/Cordobo/angularx-qrcode</a>
+    <br>
+    **The version installed is the one for angular 5 (don't install other versions or bugs can occure).
+    <br>
+    # Angular 5
+    <br>
+    npm install angularx-qrcode@1.1.7 --save
+    <br>
+    <br>
+    <br>
+    <strong>example shows 2 dr codes:</strong> 
+
+  </div>
+<p>
+
+</p>
+
+
+<h5>QR Code from a string (directive only)</h5>
+<div>Hello worlds from QR CODE, flimsey http:cnn.com fsdkfsd fdls fsdklf sdlfsdklf </div>
+<qrcode [qrdata]="'Hello worlds from QR CODE, flimsey http:cnn.com fsdkfsd fdls fsdklf sdlfsdklf '" [size]="256" [level]="'M'"></qrcode>
+
+<br>
+<br>
+<br>
+<h5>QR Code from a variable in your controller</h5>
+<div>Your QR code data string</div>
+<qrcode [qrdata]="myAngularxQrCode" [size]="256" [level]="'M'"></qrcode>
