@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { AppConfig } from './app.config';
 import { ErrorComponent } from './error/error.component';
 
-
+// import { JoditAngularModule } from 'jodit-angular';
 
 //import localeFr from '@angular/common/locales/fr';
 //registerLocaleData(localeFr);
@@ -73,6 +73,7 @@ import '@progress/kendo-angular-intl/locales/fr/all';
 import '@progress/kendo-angular-intl/locales/it/all';
 import '@progress/kendo-angular-intl/locales/ru/all';
 import { dbo_ApplicationUserController } from './shared/webapi/crud.autogen/dbo/Dbo_ApplicationUserController';
+// import { NgxEditorModule } from 'ngx-editor';
 // import { Dbo_ApplicationUserController } from './shared/webapi/crud.autogen/autogen-crud-dbo.service';
 
 // import { AgmCoreModule } from '@agm/core';
@@ -93,6 +94,7 @@ const APP_PROVIDERS = [
   declarations: [
     AppComponent,
     ErrorComponent
+    
     // GooglemapstestComponent
     // CrudDboApplicationUserComponent,
     // ProfileComponent
@@ -115,6 +117,8 @@ const APP_PROVIDERS = [
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyAeO7HeMKs0df444MtYfq5eAfsFWwN8s_Q'
     // })
+    // NgxEditorModule
+    // JoditAngularModule,
   ],
   providers: [
     CldrIntlService,

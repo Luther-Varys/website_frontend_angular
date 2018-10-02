@@ -12,7 +12,11 @@ const routes: Routes = [
     { path: 'test-qrcode', loadChildren: '../test-qrscanner/test-qrscanner.module#TestQrscannerModule' },
     { path: 'test-qrcode', loadChildren: '../test-qrscanner/test-qrscanner.module#TestQrscannerModule' },
     { path: 'test-sound', loadChildren: '../test-soundevent/test-soundevent.module#TestSoundeventModule' },
-    { path: 'test-wysiwyg-frola', loadChildren: '../test-wysiwyg-frola/test-wysiwyg-frola.module#TestWysiwygFrolaModule' },
+    { path: 'test-wysiwyg', loadChildren: '../test-wysiwyg/test-wysiwyg.module#TestWysiwygModule' },
+    // { path: 'test-wysiwyg-frola', loadChildren: '../test-wysiwyg-frola/test-wysiwyg-frola.module#TestWysiwygFrolaModule' },
+    // { path: 'test-wysiwyg-summernote', loadChildren: '../test-wysiwyg-summernote/test-wysiwyg-summernote.module#TestWysiwygSummernoteModule' },
+    // { path: 'test-wysiwyg-quill', loadChildren: '../test-wysiwyg-quill/test-wysiwyg-quill.module#TestWysiwygQuillModule' },
+    
   ]}
 ];
 

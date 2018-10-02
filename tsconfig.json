@@ -16,6 +16,12 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    // check this post for error https://stackoverflow.com/questions/48926322/cannot-redeclare-block-scoped-variable-ngdevmode
+    //This error occured when I installed "jodit-angular": "^1.0.59",
+    //adding the path "@angular/*": ["../node_modules/@angular/*"] fixed it
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"]
+    }
   },
 }
