@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DataStorageService } from '../../shared/data-storage.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-wysiwyg-jodit',
@@ -16,7 +17,7 @@ export class WysiwygJoditComponent implements OnInit, AfterViewInit {
   @ViewChild('editor_1') editor_1: ElementRef;
   @ViewChild('editor_2') editor_2: ElementRef;
 
-  constructor(private dataStorageService: DataStorageService) { 
+  constructor(private dataStorageService: DataStorageService, private spinner: NgxSpinnerService) { 
     
   }
 
@@ -28,8 +29,8 @@ export class WysiwygJoditComponent implements OnInit, AfterViewInit {
   }
 
   ngOnDestroy() {
-   (<any>this.editor_1).destruct();
-   (<any>this.editor_2).destruct();
+  //  (<any>this.editor_1).destruct();
+  //  (<any>this.editor_2).destruct();
   }
 
 
@@ -100,6 +101,19 @@ export class WysiwygJoditComponent implements OnInit, AfterViewInit {
       }
     );
   }
+
+
+
+  ngxSpinnerStart(){
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 5000);
+  }
+
 
 
 

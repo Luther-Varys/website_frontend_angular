@@ -81,7 +81,10 @@ import { dbo_ApplicationUserController } from './shared/webapi/crud.autogen/dbo/
 // import { CrudDboApplicationUserComponent } from './crud-dbo-application-user/crud-dbo-application-user.component';
 
 
-
+//******************** */
+//NgxSpinner
+//******************** */
+// import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -119,6 +122,9 @@ const APP_PROVIDERS = [
     // })
     // NgxEditorModule
     // JoditAngularModule,
+    
+    // //NgxSpinner
+    // NgxSpinnerModule,
   ],
   providers: [
     CldrIntlService,

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { JoditAngularModule } from 'jodit-angular';
 
 import { WysiwygJoditComponent } from './wysiwyg-jodit/wysiwyg-jodit.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export const routes = [
   { path: '', redirectTo: 'wysiwyg-jodit', pathMatch: 'full' },
@@ -19,6 +20,8 @@ export const routes = [
     RouterModule.forChild(routes),
     FormsModule, 
     JoditAngularModule, // <- Important part
+    //NgxSpinner
+    NgxSpinnerModule,
   ],
   declarations: [
     WysiwygJoditComponent
