@@ -187,6 +187,43 @@ export class DataStorageService {
 
 
 
+  //AccountDetail
+  wysiwygPost(wysiwyg_content:string){
+    const path = this.baseUrlBackend+"api/testapi/WysiwygPost";
+
+    let wysiwygPostVM = {
+      "wysiwyg_content": wysiwyg_content
+    };
+
+
+    //****POST A STRING */
+    //https://stackoverflow.com/questions/47354807/how-to-post-a-string-in-the-body-of-a-post-request-with-angular-4-3-httpclient
+    const obser = this.httpClient.post(path, wysiwygPostVM, {
+      // const obser = this.httpClient.post(path, `{"wysiwyg_content":"${wysiwyg_content}"}`, {
+      headers: new HttpHeaders({
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+      }).set('Authorization', `Bearer ${localStorage.getItem('id_token')}`),
+      });
+      //.map((response) => <DetailFormVM>(this.cameCaseVmMapperHelper.objectKeysToCamel(response)));
+      //.map((response: DetailFormVM) => console.log("ZR response: ", response) );
+      // .map((response: DetailFormVM) => {return response;});
+      // .map((response: DetailFormVM) => <DetailFormVM>response.json());
+    
+    // obser.subscribe();
+
+
+
+    return obser;
+  }
+
+
+
+
+
+
+
+
 
 
   // storeRecipes() {

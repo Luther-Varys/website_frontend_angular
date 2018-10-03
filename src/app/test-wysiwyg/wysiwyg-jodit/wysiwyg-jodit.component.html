@@ -11,9 +11,72 @@
 <a href="https://www.npmjs.com/package/jodit-angular">https://www.npmjs.com/package/jodit-angular</a>
 <br>
 <br>
+<h4>Get editor from dom: this is use to set or initialize the editor content. Can't find this feature in the jodit angular library. (This is a workaround)</h4>
+<a href="https://github.com/xdan/jodit/issues/32">https://github.com/xdan/jodit/issues/32</a>
+<a href="https://github.com/xdan/jodit/issues/9">https://github.com/xdan/jodit/issues/9</a>
+<a href="https://stackoverflow.com/questions/42591822/angular-2-access-an-element-from-the-component-getdocumentbyid-doesnt-work/42591893">https://stackoverflow.com/questions/42591822/angular-2-access-an-element-from-the-component-getdocumentbyid-doesnt-work/42591893</a>
+
 <br>
+<br>
+<p>
+  When using <strong>[innerHTML]="webApiresponse.Message"</strong> it seems that angular applies
+  html sanitization. This aspect needs to be confirmed since I've not fully verified yet.
+</p>
+
+<br>
+<br>
+<br>
+
+
+<h4>Send to WEBAPI editor</h4>
 <jodit-editor
+  #editor_1
   [config]="joditOptions"
   (onChange)="jodit_onChange($event)"
   >
 </jodit-editor> 
+<button type="button" (click)="wysiwygPost()">Post wysiwyg-jodit content</button>
+<br>
+<br>
+
+
+<h4>Response from WEBAPI editor</h4>
+<jodit-editor
+  #editor_2
+  [config]="joditOptions"
+  [(defaultValue)]="webApiresponse"
+  >
+</jodit-editor> 
+
+
+<br>
+<br>
+<h4>Results from web api</h4>
+<div *ngIf="webApiresponse">
+  <h5>-- Show Json --</h5>
+  <div style="font-size: small">
+    {{webApiresponse|json}}
+  </div>
+</div>
+<div *ngIf="webApiresponse.Message">
+    <h5>-- Show RAW HTML --</h5>
+    <div [innerHTML]="webApiresponse.Message" style="font-size: small">
+    </div>
+</div>
+
+
+<!-- <jodit-editor
+  #editor_2
+  [config]="joditOptions"
+  [(defaultValue)]="webApiresponse"
+  (onAfterExec)="jodit_onafterInit($e)"
+  (onOpen)="jodit_onafterInit($e)"
+  >
+</jodit-editor> -->
+<!-- [value] = "'<p>start</p>'" -->
+<!-- [innerHTML]="'HELLLO WORLD'" -->
+
+<br>
+<br>
+<br>
+<br>
