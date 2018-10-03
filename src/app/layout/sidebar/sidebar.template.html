@@ -29,6 +29,20 @@
         Dashboard
       </a>
     </li>
+
+
+    <li>
+    <!-- an example of nested submenu. basic bootstrap collapse component -->
+    <a class="collapsed" data-target="#sidebar-test-components" data-toggle="collapse" data-parent="#sidebar">
+        <span class="icon">
+          <!-- <i class="fi flaticon-list"></i> -->
+          <i class="fa fa-tree"></i>
+        </span>
+        Test components
+        <i class="toggle fa fa-angle-down"></i>
+      </a>
+      <ul id="sidebar-test-components" class="collapse">
+
     <li>
       <a [routerLink]=" ['ng-googlemaps/showmap'] ">
         <span class="icon">
@@ -105,22 +119,9 @@
         </span>
       </a>
     </li>
-    <!-- <li>
-      <a [routerLink]=" ['crud-autogen'] ">
-      <span class="icon">
-          <i class="fa fa-tree"></i>
-      </span>
-        crud-autogen
-      </a>
-    </li>
-    <li>
-      <a [routerLink]=" ['crud-autogen/crud-dbo-applicationuser'] ">
-      <span class="icon">
-          <i class="fa fa-tree"></i>
-      </span>
-        crud-appuser
-      </a>
-    </li> -->
+
+    </ul>
+  </li>
 
     <li>
       <!-- an example of nested submenu. basic bootstrap collapse component -->
